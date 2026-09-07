@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --background: #0b0f0c;
+    --surface: #101611;
+    --border: #1c281e;
+
+    --text: #c8d0c9;
+    --muted: #68736a;
+
+    --green: #789878;
+    --green-bright: #9aaa8f;
+    --green-dark: #405840;
+
+    --max-width: 760px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% -20%,
+            #162018 0%,
+            var(--background) 45%
+        );
+
+    color: var(--text);
+
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 14px;
+    line-height: 1.7;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+    background: var(--green-dark);
+    color: #e5ece5;
+}
+
+.container {
+    width: min(calc(100% - 40px), var(--max-width));
+    margin: 0 auto;
+    padding: 90px 0 50px;
+}
+
+/* -------------------------
+   Header
+------------------------- */
+
+header {
+    margin-bottom: 65px;
+}
+
+.terminal-line {
+    display: flex;
+    gap: 10px;
+
+    margin-bottom: 14px;
+
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.prompt {
+    color: var(--green);
+}
+
+h1 {
+    color: var(--green-bright);
+
+    font-size: clamp(38px, 8vw, 64px);
+    font-weight: 500;
+    letter-spacing: -3px;
+    line-height: 1.1;
+}
+
+.subtitle {
+    margin-top: 12px;
+
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* -------------------------
+   General sections
+------------------------- */
+
+section {
+    margin-bottom: 55px;
+}
+
+.about {
+    max-width: 650px;
+
+    color: #909a91;
+}
+
+.about p {
+    margin-bottom: 13px;
+}
+
+.about strong {
+    color: var(--text);
+    font-weight: 500;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 16px;
+
+    color: var(--text);
+
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: lowercase;
+}
+
+.section-title span {
+    color: var(--green);
+}
+
+/* -------------------------
+   Links
+------------------------- */
+
+.links {
+    border-top: 1px solid var(--border);
+}
+
+.links a {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 130px 1fr 20px;
+    align-items: center;
+    gap: 20px;
+
+    min-height: 65px;
+
+    padding: 13px 12px;
+
+    border-bottom: 1px solid var(--border);
+
+    color: inherit;
+    text-decoration: none;
+
+    transition:
+        background 150ms ease,
+        padding 150ms ease;
+}
+
+.links a:hover {
+    padding-left: 18px;
+
+    background: var(--surface);
+}
+
+.link-name {
+    color: var(--green-bright);
+    font-weight: 500;
+}
+
+.link-description {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.arrow {
+    color: var(--green-dark);
+    text-align: right;
+
+    transition:
+        color 150ms ease,
+        transform 150ms ease;
+}
+
+.links a:hover .arrow {
+    color: var(--green);
+    transform: translateX(3px);
+}
+
+/* -------------------------
+   Status
+------------------------- */
+
+.status-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: fit-content;
+
+    padding: 10px 14px;
+
+    border: 1px solid var(--border);
+    background: rgba(16, 22, 17, 0.55);
+
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--green);
+
+    box-shadow: 0 0 8px rgba(120, 152, 120, 0.4);
+}
+
+/* -------------------------
+   Footer
+------------------------- */
+
+footer {
+    padding-top: 25px;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--muted);
+    font-size: 11px;
+}
+
+footer .prompt {
+    margin-right: 5px;
+}
+
+.copyright {
+    margin-top: 8px;
+
+    color: #414a42;
+}
+
+/* -------------------------
+   Mobile
+------------------------- */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: min(calc(100% - 28px), var(--max-width));
+        padding-top: 55px;
+    }
+
+    header {
+        margin-bottom: 50px;
+    }
+
+    .links a {
+        grid-template-columns: 1fr 20px;
+        gap: 5px;
+    }
+
+    .link-description {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .arrow {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+    }
+
+}
+
