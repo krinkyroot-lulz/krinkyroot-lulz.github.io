@@ -1,24 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
-
-:root {
-    --background: #0b0f0c;
-    --surface: #101611;
-    --border: #1c281e;
-
-    --text: #c8d0c9;
-    --muted: #68736a;
-
-    --green: #789878;
-    --green-bright: #9aaa8f;
-    --green-dark: #405840;
-
-    --max-width: 760px;
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+:root {
+    --bg: #0a0a0a;
+    --surface: #101010;
+    --border: #1d1d1d;
+
+    --text: #d4d4d4;
+    --muted: #777;
+    --faint: #444;
 }
 
 html {
@@ -28,16 +21,17 @@ html {
 body {
     min-height: 100vh;
 
-    background:
-        radial-gradient(
-            circle at 50% -20%,
-            #162018 0%,
-            var(--background) 45%
-        );
-
+    background: var(--bg);
     color: var(--text);
 
-    font-family: "IBM Plex Mono", monospace;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Helvetica,
+        Arial,
+        sans-serif;
+
     font-size: 14px;
     line-height: 1.7;
 
@@ -45,70 +39,66 @@ body {
 }
 
 ::selection {
-    background: var(--green-dark);
-    color: #e5ece5;
+    background: #303030;
+    color: #fff;
 }
 
 .container {
-    width: min(calc(100% - 40px), var(--max-width));
+    width: min(calc(100% - 40px), 700px);
     margin: 0 auto;
-    padding: 90px 0 50px;
+    padding: 90px 0 55px;
 }
 
-/* -------------------------
-   Header
-------------------------- */
+/* Header */
 
 header {
     margin-bottom: 65px;
 }
 
 .terminal-line {
-    display: flex;
-    gap: 10px;
+    margin-bottom: 12px;
 
-    margin-bottom: 14px;
+    color: var(--faint);
 
-    color: var(--muted);
+    font-family: monospace;
     font-size: 12px;
 }
 
 .prompt {
-    color: var(--green);
+    margin-right: 7px;
+    color: var(--muted);
 }
 
 h1 {
-    color: var(--green-bright);
+    color: #e5e5e5;
 
-    font-size: clamp(38px, 8vw, 64px);
+    font-size: 48px;
     font-weight: 500;
-    letter-spacing: -3px;
+    letter-spacing: -2px;
     line-height: 1.1;
 }
 
 .subtitle {
-    margin-top: 12px;
+    margin-top: 10px;
 
     color: var(--muted);
     font-size: 13px;
 }
 
-/* -------------------------
-   General sections
-------------------------- */
+/* Sections */
 
 section {
     margin-bottom: 55px;
 }
 
 .about {
-    max-width: 650px;
+    max-width: 640px;
 
-    color: #909a91;
+    color: #999;
 }
 
 .about p {
-    margin-bottom: 13px;
+    margin-bottom: 14px;
 }
 
 .about strong {
@@ -119,40 +109,35 @@ section {
 .section-title {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 
-    margin-bottom: 16px;
+    margin-bottom: 15px;
 
-    color: var(--text);
+    color: #aaa;
 
-    font-size: 12px;
-    font-weight: 500;
+    font-family: monospace;
+    font-size: 11px;
     text-transform: lowercase;
 }
 
 .section-title span {
-    color: var(--green);
+    color: #555;
 }
 
-/* -------------------------
-   Links
-------------------------- */
+/* Links */
 
 .links {
     border-top: 1px solid var(--border);
 }
 
 .links a {
-    position: relative;
-
     display: grid;
     grid-template-columns: 130px 1fr 20px;
     align-items: center;
-    gap: 20px;
+    gap: 18px;
 
-    min-height: 65px;
-
-    padding: 13px 12px;
+    min-height: 62px;
+    padding: 12px;
 
     border-bottom: 1px solid var(--border);
 
@@ -160,102 +145,90 @@ section {
     text-decoration: none;
 
     transition:
-        background 150ms ease,
-        padding 150ms ease;
+        background 120ms ease,
+        padding 120ms ease;
 }
 
 .links a:hover {
-    padding-left: 18px;
-
+    padding-left: 16px;
     background: var(--surface);
 }
 
 .link-name {
-    color: var(--green-bright);
+    color: #ccc;
     font-weight: 500;
 }
 
 .link-description {
-    color: var(--muted);
+    color: #666;
     font-size: 12px;
 }
 
 .arrow {
-    color: var(--green-dark);
+    color: #444;
     text-align: right;
 
-    transition:
-        color 150ms ease,
-        transform 150ms ease;
+    transition: color 120ms ease;
 }
 
 .links a:hover .arrow {
-    color: var(--green);
-    transform: translateX(3px);
+    color: #aaa;
 }
 
-/* -------------------------
-   Status
-------------------------- */
+/* Status */
 
 .status-box {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 9px;
 
-    width: fit-content;
-
-    padding: 10px 14px;
+    padding: 9px 12px;
 
     border: 1px solid var(--border);
-    background: rgba(16, 22, 17, 0.55);
+    background: #0d0d0d;
 
-    color: var(--muted);
-    font-size: 12px;
-}
+    color: #666;
 
-.status-dot {
-    width: 7px;
-    height: 7px;
-
-    border-radius: 50%;
-
-    background: var(--green);
-
-    box-shadow: 0 0 8px rgba(120, 152, 120, 0.4);
-}
-
-/* -------------------------
-   Footer
-------------------------- */
-
-footer {
-    padding-top: 25px;
-
-    border-top: 1px solid var(--border);
-
-    color: var(--muted);
+    font-family: monospace;
     font-size: 11px;
 }
 
+.status-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #666;
+}
+
+/* Footer */
+
+footer {
+    padding-top: 24px;
+
+    border-top: 1px solid var(--border);
+
+    color: #444;
+
+    font-family: monospace;
+    font-size: 10px;
+}
+
 footer .prompt {
-    margin-right: 5px;
+    color: #555;
 }
 
 .copyright {
-    margin-top: 8px;
-
-    color: #414a42;
+    margin-top: 7px;
+    color: #292929;
 }
 
-/* -------------------------
-   Mobile
-------------------------- */
+/* Mobile */
 
 @media (max-width: 600px) {
-
     .container {
-        width: min(calc(100% - 28px), var(--max-width));
+        width: min(calc(100% - 28px), 700px);
         padding-top: 55px;
     }
 
@@ -263,9 +236,13 @@ footer .prompt {
         margin-bottom: 50px;
     }
 
+    h1 {
+        font-size: 40px;
+    }
+
     .links a {
         grid-template-columns: 1fr 20px;
-        gap: 5px;
+        gap: 4px;
     }
 
     .link-description {
@@ -277,6 +254,4 @@ footer .prompt {
         grid-column: 2;
         grid-row: 1 / span 2;
     }
-
 }
-
