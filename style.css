@@ -24,21 +24,22 @@ body {
 }
 
 .container {
-    width: 100%;
-    max-width: 1100px;
+    width: 1200px;
+    max-width: calc(100% - 80px);
     margin: 0 auto;
-    padding: 60px 40px 80px;
+    padding: 60px 0 70px;
 }
 
 header {
-    margin-bottom: 55px;
+    margin-bottom: 50px;
 }
 
 .name-gif {
     display: block;
     width: 600px;
-    max-width: 100%;
-    height: auto;
+    height: 80px;
+    object-fit: contain;
+    object-position: left;
 }
 
 .subtitle {
@@ -46,47 +47,85 @@ header {
     font-size: 14px;
 }
 
-.about {
+.layout {
     display: grid;
-    grid-template-columns: minmax(0, 600px) 300px;
-    gap: 70px;
+    grid-template-columns: 700px 350px;
+    gap: 80px;
     align-items: start;
-    margin-bottom: 55px;
 }
 
-.about-main {
-    min-width: 0;
+.main-content {
+    width: 700px;
 }
 
-.about-main p {
+.main-content > p {
     margin-bottom: 18px;
 }
 
-.about-main strong {
-    font-weight: 700;
+.main-content > p:first-child {
+    font-weight: bold;
 }
 
 .ascii {
-    margin-top: 25px;
+    margin-top: 28px;
     font-family: "Courier New", monospace;
     font-size: 15px;
 }
 
+section {
+    margin-top: 50px;
+}
+
+.section-title {
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.links a {
+    display: flex;
+    gap: 15px;
+    padding: 3px 0;
+    color: #fff;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+.link-name {
+    width: 80px;
+    font-weight: bold;
+}
+
+.link-description {
+    font-size: 14px;
+}
+
+.status-box {
+    font-size: 14px;
+}
+
 .fuck-list {
-    width: 300px;
-    min-width: 0;
+    width: 350px;
 }
 
 .fuck-list h2 {
     font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 0;
+    font-weight: bold;
 }
 
 .fuck-subtitle {
-    margin-bottom: 15px;
+    margin-top: 1px;
+    margin-bottom: 16px;
     font-size: 12px;
-    opacity: 0.65;
+    opacity: 0.6;
 }
 
 .fuck-list ul {
@@ -100,53 +139,11 @@ header {
 }
 
 .fuck-list li strong {
-    font-weight: 700;
-}
-
-section:not(.about) {
-    width: 600px;
-    max-width: 100%;
-    margin-bottom: 45px;
-}
-
-.section-title {
-    margin-bottom: 12px;
-    font-weight: 700;
-}
-
-.links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.links a {
-    display: flex;
-    gap: 14px;
-    padding: 3px 0;
-    color: #fff;
-    text-decoration: none;
-}
-
-.links a:hover {
-    text-decoration: underline;
-}
-
-.link-name {
-    width: 80px;
-    font-weight: 700;
-}
-
-.link-description {
-    font-size: 14px;
-}
-
-.status-box {
-    font-size: 14px;
+    font-weight: bold;
 }
 
 footer {
-    margin-top: 65px;
+    margin-top: 70px;
     font-size: 12px;
 }
 
@@ -155,28 +152,39 @@ footer {
     opacity: 0.55;
 }
 
-@media (max-width: 850px) {
-    .about {
-        grid-template-columns: 1fr;
-        gap: 45px;
+@media (max-width: 1150px) {
+    .container {
+        max-width: calc(100% - 60px);
     }
 
-    .fuck-list {
-        width: 100%;
-        max-width: 600px;
+    .layout {
+        grid-template-columns: minmax(0, 1fr) 300px;
+        gap: 50px;
+    }
+
+    .main-content {
+        width: auto;
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .container {
-        padding: 40px 24px 60px;
+        max-width: calc(100% - 40px);
+        padding-top: 40px;
+    }
+
+    .layout {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .main-content,
+    .fuck-list {
+        width: 100%;
     }
 
     .name-gif {
         width: 100%;
-    }
-
-    section:not(.about) {
-        width: 100%;
+        height: auto;
     }
 }
