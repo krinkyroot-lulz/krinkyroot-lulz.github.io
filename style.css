@@ -23,12 +23,22 @@ body {
     color: #000;
 }
 
+
+/* =========================
+   LAYOUT
+   ========================= */
+
 .container {
     width: 1200px;
     max-width: calc(100% - 80px);
     margin: 0 auto;
     padding: 60px 0 70px;
 }
+
+
+/* =========================
+   HEADER
+   ========================= */
 
 header {
     margin-bottom: 50px;
@@ -47,24 +57,44 @@ header {
     font-size: 14px;
 }
 
-main {
-    width: 600px;
+
+/* =========================
+   ABOUT
+   ========================= */
+
+.about {
+    width: 700px;
     max-width: 100%;
+    margin-bottom: 42px;
 }
 
-main > p {
+.about p {
     margin-bottom: 18px;
 }
 
-main > p:first-child {
+.about p:last-child {
+    margin-bottom: 0;
+}
+
+.about p:first-child {
     font-weight: bold;
 }
+
+
+/* =========================
+   ASCII
+   ========================= */
 
 .ascii {
     margin-top: 28px;
     font-family: "Courier New", monospace;
     font-size: 15px;
 }
+
+
+/* =========================
+   SECTIONS
+   ========================= */
 
 section {
     margin-top: 50px;
@@ -75,6 +105,11 @@ section {
     font-weight: bold;
 }
 
+
+/* =========================
+   LINKS
+   ========================= */
+
 .links {
     display: flex;
     flex-direction: column;
@@ -83,6 +118,7 @@ section {
 
 .links a {
     display: flex;
+    align-items: baseline;
     gap: 15px;
     padding: 3px 0;
     color: #fff;
@@ -102,66 +138,84 @@ section {
     font-size: 14px;
 }
 
-/* Undertale */
-
-.game-section {
-    position: absolute;
-    top: 60px;
-    right: max(40px, calc((100vw - 1200px) / 2));
-    width: 550px;
-    margin-top: 0;
+.arrow {
+    display: none;
 }
 
-.game {
-    width: 550px;
-    background: #000;
+
+/* =========================
+   88x31 BUTTONS
+   ========================= */
+
+.buttons-section {
+    width: 700px;
+    max-width: 100%;
 }
 
-.game iframe {
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.buttons a {
     display: block;
-    width: 550px;
-    height: 470px;
-    border: none;
-    background: #000;
+    width: 88px;
+    height: 31px;
+    text-decoration: none;
 }
+
+.buttons img {
+    display: block;
+    width: 88px;
+    height: 31px;
+}
+
+.buttons a:hover {
+    opacity: 0.8;
+}
+
+
+/* =========================
+   STATUS
+   ========================= */
 
 .status-box {
     font-size: 14px;
 }
 
-footer {
-    margin-top: 50px;
+.status-dot {
+    display: none;
 }
 
-.prompt {
-    margin-right: 8px;
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    width: 700px;
+    max-width: 100%;
+    margin-top: 60px;
+    font-size: 12px;
+}
+
+footer .prompt {
+    display: none;
 }
 
 .copyright {
-    margin-top: 8px;
+    margin-top: 5px;
 }
 
-/* Smaller screens */
 
-@media (max-width: 1250px) {
-    .game-section {
-        position: static;
-        width: 600px;
-        max-width: 100%;
-        margin-top: 50px;
-    }
-
-    .game {
-        width: 100%;
-    }
-
-    .game iframe {
-        width: 100%;
-        height: 500px;
-    }
-}
+/* =========================
+   MOBILE
+   ========================= */
 
 @media (max-width: 800px) {
+
     .container {
         max-width: calc(100% - 40px);
         padding-top: 40px;
@@ -173,20 +227,14 @@ footer {
         height: auto;
     }
 
-    main {
+    .about,
+    .buttons-section,
+    footer {
         width: 100%;
     }
 
-    .game-section {
-        width: 100%;
+    .buttons {
+        gap: 4px;
     }
 
-    .game,
-    .game iframe {
-        width: 100%;
-    }
-
-    .game iframe {
-        height: 500px;
-    }
 }
