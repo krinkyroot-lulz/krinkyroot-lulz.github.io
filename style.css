@@ -1,17 +1,19 @@
+```css
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-html,
-body {
+html {
     background: #000000;
-    color: #FFFFFF;
 }
 
 body {
     min-height: 100vh;
+
+    background: #000000;
+    color: #FFFFFF;
 
     font-family:
         Arial,
@@ -30,41 +32,35 @@ body {
 }
 
 
-/* =========================
-   LAYOUT
-   ========================= */
+/* =================================
+   PAGE
+   ================================= */
 
 .container {
-    width: 100%;
-    max-width: 1050px;
+    width: min(1100px, 100%);
 
     margin: 0;
-    padding: 60px 40px;
+    padding: 70px 50px 50px;
 }
 
 
-/* =========================
+/* =================================
    HEADER
-   ========================= */
+   ================================= */
 
 header {
     width: 600px;
     max-width: 100%;
 
-    margin-bottom: 55px;
+    margin-bottom: 65px;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid #FFFFFF;
 }
 
 .terminal-line {
     display: none;
-}
-
-h1 {
-    color: #FFFFFF;
-
-    font-size: 30px;
-    font-weight: 400;
-
-    margin-bottom: 4px;
 }
 
 .name-gif {
@@ -76,120 +72,7 @@ h1 {
 }
 
 .subtitle {
-    margin-top: 12px;
-
-    color: #FFFFFF;
-
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-
-/* =========================
-   MAIN CONTENT
-   ========================= */
-
-/*
-   Everything stays on the left
-   except the fuck list.
-*/
-
-.about {
-    width: 600px;
-    max-width: 100%;
-
-    margin-bottom: 42px;
-}
-
-
-/* Put the fuck list beside
-   the main content */
-
-.fuck-list {
-    position: absolute;
-
-    top: 60px;
-    left: 700px;
-
-    width: 300px;
-}
-
-
-/* =========================
-   SECTIONS
-   ========================= */
-
-section {
-    margin-bottom: 42px;
-}
-
-.about {
-    color: #FFFFFF;
-}
-
-.about p {
-    margin-bottom: 16px;
-}
-
-.about p:last-child {
-    margin-bottom: 0;
-}
-
-.about strong {
-    color: #FFFFFF;
-    font-weight: 600;
-}
-
-
-/* =========================
-   ASCII
-   ========================= */
-
-.ascii {
-    margin-top: 28px;
-
-    color: #FFFFFF;
-
-    font-size: 15px;
-}
-
-
-/* =========================
-   SECTION TITLES
-   ========================= */
-
-.section-title {
-    margin-bottom: 11px;
-
-    color: #FFFFFF;
-
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.section-title span {
-    display: none;
-}
-
-.section-subtitle {
-    margin-bottom: 15px;
-
-    color: #FFFFFF;
-
-    font-size: 13px;
-}
-
-
-/* =========================
-   FUCK LIST
-   ========================= */
-
-.fuck-list ul {
-    list-style: none;
-}
-
-.fuck-list li {
-    margin-bottom: 11px;
+    margin-top: 15px;
 
     color: #FFFFFF;
 
@@ -197,53 +80,195 @@ section {
     line-height: 1.5;
 }
 
-.fuck-list li::before {
-    content: "— ";
+
+/* =================================
+   ABOUT
+   ================================= */
+
+.about {
+    width: 600px;
+    max-width: 100%;
+
+    margin-bottom: 50px;
 
     color: #FFFFFF;
 }
 
-.fuck-list li:last-child {
+.about p {
+    margin-bottom: 20px;
+}
+
+.about p:last-of-type {
     margin-bottom: 0;
 }
 
-.fuck-list strong {
+.about strong {
     font-weight: 600;
+    color: #FFFFFF;
 }
 
 
-/* =========================
+/* =================================
+   ASCII
+   ================================= */
+
+.ascii {
+    margin-top: 30px !important;
+    margin-bottom: 0 !important;
+
+    padding: 12px 0;
+
+    border-top: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 15px;
+}
+
+
+/* =================================
+   FUCK LIST
+   ================================= */
+
+/*
+   Your fuck list is currently inside
+   .about, so we can't move the whole
+   section without changing HTML.
+
+   Instead, make it visually distinct.
+*/
+
+.about h2 {
+    margin-top: 55px;
+    margin-bottom: 18px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #FFFFFF;
+
+    color: #FFFFFF;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.about ul {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+.about li {
+    position: relative;
+
+    margin-bottom: 13px;
+    padding-left: 18px;
+
+    color: #FFFFFF;
+
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.about li::before {
+    content: "×";
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    color: #FFFFFF;
+
+    font-weight: 600;
+}
+
+.about li:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =================================
+   NORMAL SECTIONS
+   ================================= */
+
+section:not(.about) {
+    width: 600px;
+    max-width: 100%;
+
+    margin-bottom: 50px;
+}
+
+.section-title {
+    margin-bottom: 15px;
+
+    padding-bottom: 7px;
+
+    border-bottom: 1px solid #FFFFFF;
+
+    color: #FFFFFF;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    text-transform: lowercase;
+}
+
+.section-title span {
+    display: none;
+}
+
+
+/* =================================
    LINKS
-   ========================= */
+   ================================= */
 
 .links {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
 
-    gap: 2px;
+    width: 100%;
 }
 
 .links a {
-    display: flex;
-    align-items: baseline;
+    display: grid;
 
-    gap: 10px;
+    grid-template-columns: 90px 1fr;
 
-    padding: 3px 0;
+    width: 100%;
+
+    padding: 7px 0;
+
+    border-bottom: 1px solid #333333;
 
     color: #FFFFFF;
+
     text-decoration: none;
 }
 
+.links a:first-child {
+    border-top: 1px solid #333333;
+}
+
 .links a:hover {
-    text-decoration: underline;
+    background: #FFFFFF;
+    color: #000000;
+
+    text-decoration: none;
+}
+
+.links a:hover .link-name,
+.links a:hover .link-description {
+    color: #000000;
 }
 
 .link-name {
     color: #FFFFFF;
 
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .link-description {
@@ -257,14 +282,18 @@ section {
 }
 
 
-/* =========================
+/* =================================
    STATUS
-   ========================= */
+   ================================= */
 
 .status-box {
+    display: block;
+
+    padding: 10px 0;
+
     color: #FFFFFF;
 
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .status-dot {
@@ -272,19 +301,22 @@ section {
 }
 
 
-/* =========================
+/* =================================
    FOOTER
-   ========================= */
+   ================================= */
 
 footer {
     width: 600px;
     max-width: 100%;
 
-    margin-top: 60px;
+    margin-top: 80px;
+    padding-top: 15px;
+
+    border-top: 1px solid #FFFFFF;
 
     color: #FFFFFF;
 
-    font-size: 12px;
+    font-size: 11px;
 }
 
 footer .prompt {
@@ -292,55 +324,42 @@ footer .prompt {
 }
 
 .copyright {
-    margin-top: 5px;
+    margin-top: 4px;
+
+    opacity: 0.65;
 }
 
 
-/* =========================
-   MOBILE
-   ========================= */
+/* =================================
+   RESPONSIVE
+   ================================= */
 
-@media (max-width: 1050px) {
-
-    .container {
-        max-width: 700px;
-    }
-
-    .fuck-list {
-        position: static;
-
-        width: 100%;
-
-        margin-top: 45px;
-    }
-}
-
-
-@media (max-width: 600px) {
+@media (max-width: 650px) {
 
     .container {
         padding: 40px 24px;
     }
 
     header {
-        margin-bottom: 42px;
+        margin-bottom: 45px;
     }
 
-    h1 {
-        font-size: 26px;
+    section:not(.about) {
+        width: 100%;
     }
 
-    .subtitle {
-        font-size: 12px;
+    .about {
+        width: 100%;
     }
 
-    section {
-        margin-bottom: 38px;
+    .links a {
+        grid-template-columns: 80px 1fr;
     }
 
-    .fuck-list li {
+    .about li {
         font-size: 12px;
     }
 }
+```
 
 
