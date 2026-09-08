@@ -47,22 +47,16 @@ header {
     font-size: 14px;
 }
 
-.layout {
-    display: grid;
-    grid-template-columns: 700px 350px;
-    gap: 80px;
-    align-items: start;
-}
-
-.main-content {
+main {
     width: 700px;
+    max-width: 100%;
 }
 
-.main-content > p {
+main > p {
     margin-bottom: 18px;
 }
 
-.main-content > p:first-child {
+main > p:first-child {
     font-weight: bold;
 }
 
@@ -108,63 +102,22 @@ section {
     font-size: 14px;
 }
 
+.game {
+    width: 700px;
+    max-width: 100%;
+    background: #000;
+}
+
+.game iframe {
+    display: block;
+    width: 100%;
+    height: 600px;
+    border: none;
+    background: #000;
+}
+
 .status-box {
     font-size: 14px;
-}
-
-.fuck-list {
-    width: 350px;
-}
-
-.fuck-list h2 {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.fuck-subtitle {
-    margin-top: 1px;
-    margin-bottom: 16px;
-    font-size: 12px;
-    opacity: 0.6;
-}
-
-.fuck-list ul {
-    padding-left: 18px;
-}
-
-.fuck-list li {
-    margin-bottom: 11px;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-.fuck-list li strong {
-    font-weight: bold;
-}
-
-footer {
-    margin-top: 70px;
-    font-size: 12px;
-}
-
-.copyright {
-    margin-top: 4px;
-    opacity: 0.55;
-}
-
-@media (max-width: 1150px) {
-    .container {
-        max-width: calc(100% - 60px);
-    }
-
-    .layout {
-        grid-template-columns: minmax(0, 1fr) 300px;
-        gap: 50px;
-    }
-
-    .main-content {
-        width: auto;
-    }
 }
 
 @media (max-width: 800px) {
@@ -173,18 +126,22 @@ footer {
         padding-top: 40px;
     }
 
-    .layout {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
-
-    .main-content,
-    .fuck-list {
-        width: 100%;
-    }
-
     .name-gif {
         width: 100%;
+        max-width: 600px;
         height: auto;
+    }
+
+    main {
+        width: 100%;
+    }
+
+    .game,
+    .game iframe {
+        width: 100%;
+    }
+
+    .game iframe {
+        height: 500px;
     }
 }
