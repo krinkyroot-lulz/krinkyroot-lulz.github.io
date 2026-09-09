@@ -44,22 +44,21 @@ header {
     margin-bottom: 50px;
 }
 
-.name-gif {
-    display: block;
-    width: 600px;
-    height: 80px;
-    object-fit: contain;
-    object-position: left;
+.identity {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
 }
 
-.pfp {
-    position: fixed;
-    top: 25px;
-    right: 25px;
-    width: 100px;
-    height: 100px;
+.pfp-header {
+    width: 80px;
+    height: 80px;
     object-fit: cover;
-    z-index: 10;
+}
+
+.identity strong {
+    font-size: 32px;
 }
 
 
